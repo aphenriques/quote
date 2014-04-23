@@ -46,9 +46,9 @@ namespace quote {
                 }
             }
             
-            size_t writeToStringStreamCallback(void *buffer, size_t size, size_t nmemb, void *stringStream) {
+            size_t writeToStringCallBack(void *buffer, size_t size, size_t nmemb, void *string) {
                 const size_t sizeInBytes = size*nmemb;
-                static_cast<std::string *>(stringStream)->append(static_cast<const char * >(buffer), sizeInBytes);
+                static_cast<std::string *>(string)->append(static_cast<const char * >(buffer), sizeInBytes);
                 return sizeInBytes;
             }
             
@@ -59,7 +59,7 @@ namespace quote {
                 std::string data;
                 detail::curl_util::setOpt(curlHandle.get(), CURLOPT_NOBODY, 0L);
                 detail::curl_util::setOpt(curlHandle.get(), CURLOPT_WRITEDATA, &data);
-                detail::curl_util::setOpt(curlHandle.get(), CURLOPT_WRITEFUNCTION, detail::curl_util::writeToStringStreamCallback);
+                detail::curl_util::setOpt(curlHandle.get(), CURLOPT_WRITEFUNCTION, detail::curl_util::writeToStringCallBack);
                 detail::curl_util::perform(curlHandle.get());
                 return std::move(data);
             }

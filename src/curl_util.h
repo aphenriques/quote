@@ -39,7 +39,7 @@ namespace quote {
             
             void perform(CURL *handle);
             
-            size_t writeToStringStreamCallback(void *buffer, size_t size, size_t nmemb, void *stringStream);
+            size_t writeToStringCallBack(void *buffer, size_t size, size_t nmemb, void *string);
             
             std::string getUrlData(const std::string url);
 
