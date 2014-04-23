@@ -46,7 +46,7 @@ int main(int argc, const char * argv[]) {
 ```
 # Dependencies
 
-`quote` depends on libcurl to build <http://www.curl.haxx.se/libcurl/>
+`quote` depends on libcurl to build (<http://www.curl.haxx.se/libcurl/>).
 
 # Install
 
