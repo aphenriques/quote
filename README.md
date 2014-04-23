@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]) {
 ```
 # Dependencies
 
-`quote` dependes on libcurl to build <http://www.curl.haxx.se/libcurl/>
+`quote` depends on libcurl to build <http://www.curl.haxx.se/libcurl/>
 
 # Install
 
@@ -81,7 +81,7 @@ To clean everything compiled (including samples):
 
 # Usage
 
-Include `quote` headers in your project search path and link to `quote` library. E.g:
+Include `quote` headers in your project search path and link to its library. E.g:
 
     compiler flag: `-I/usr/local/quote`
     linker flags: `-L/usr/local/lib -lquote`
