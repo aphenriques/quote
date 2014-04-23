@@ -1,9 +1,9 @@
-.PHONY: all cvs_string clean
+.PHONY: all csv_string clean
 
-all: cvs_string
+all: csv_string
 
-cvs_string:
-	cd cvs_string && $(MAKE) all
+csv_string:
+	cd csv_string && $(MAKE) all
 
 clean:
-	cd cvs_string && $(MAKE) $@
+	cd csv_string && $(MAKE) $@

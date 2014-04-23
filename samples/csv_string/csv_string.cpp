@@ -1,5 +1,5 @@
 //
-//  cvs_string.cpp
+//  csv_string.cpp
 //  quote
 //
 //  Copyright (C) 2013, 2014  André Pereira Henriques

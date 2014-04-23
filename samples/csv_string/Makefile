@@ -2,7 +2,7 @@ include ../../common.mk
 
 SRC_DIRS:=.
 
-SAMPLE_EXECUTALBE:=cvs_string
+SAMPLE_EXECUTALBE:=csv_string
 
 SRCS=$(wildcard $(addsuffix /*.cpp, $(SRC_DIRS)))
 OBJS=$(addsuffix .o, $(basename $(SRCS)))
