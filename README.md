@@ -27,7 +27,10 @@ int main(int argc, const char * argv[]) {
                                                                      quote::QuoteType::lastTradeTime});
     std::cout << petr4Quotes << std::endl;
     // quote ranges can be daily, weekly, monthly, or dividends only
-    std::string petr4HistoricalPrices = quote::getHistoricalQuotesCsv("petr4.sa", 2014, 4, 2, 2014, 4, 7, quote::RangeType::daily);
+    std::string petr4HistoricalPrices = quote::getHistoricalQuotesCsv("petr4.sa",
+                                                                      2014, 4, 2,
+                                                                      2014, 4, 7,
+                                                                      quote::RangeType::daily);
     std::cout << petr4HistoricalPrices << std::endl;
     return 0;
 }
