@@ -36,17 +36,21 @@ int main(int argc, const char * argv[]) {
 }
 // prints:
 // "PETR4.SA","PETROBRAS   -PN",15.96,"4/22/2014","4:07pm"
-// 
 // Date,Open,High,Low,Close,Volume,Adj Close
 // 2014-04-07,15.70,16.46,15.70,16.46,50400200,16.46
 // 2014-04-04,15.62,15.71,15.35,15.44,33173500,15.44
 // 2014-04-03,15.53,15.65,15.12,15.40,56189100,15.40
 // 2014-04-02,15.71,16.60,15.70,15.56,66007000,14.59
-//
 ```
 # Dependencies
 
 `quote` depends on libcurl to build (<http://www.curl.haxx.se/libcurl/>).
+
+# Thread-safety
+
+`quote` is thread safe provided the following observation:
+
+Manual curl initialization (curl_global_init) must be performed before using quote functions in a multi-threaded context, otherwise it can be ignored.
 
 # Install
 
@@ -92,11 +96,6 @@ Include `quote` headers in your project search path and link to its library. E.g
 Include the library header `quote.h` in your code (`namespace quote`).
 
 Check the `samples` directory for examples.
-
-# Known issues (bugs)
-
-`quote` functions may return a 404 html text error.
-
 
 # Author
 

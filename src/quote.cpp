@@ -22,18 +22,26 @@
 //
 
 #include "quote.h"
-#include <initializer_list>
 #include <string>
+#include <utility>
+#include <vector>
 #include "conversion.h"
 #include "core.h"
 #include "QuoteType.h"
+#include "string_util.h"
 
 namespace quote {
-    std::string getLatestQuotesCsv(const std::string &instruments, std::initializer_list<QuoteType> quoteTypes) {
-        std::string quoteTypesString;
-        for (QuoteType quoteType : quoteTypes) {
-            quoteTypesString.append(detail::conversion::getString(quoteType));
+    std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, const RangeType rangeType) {
+        if (instrument.empty() == false) {
+            std::string historicalQuotesCsv = detail::core::getHistoricalQuotesCsv(instrument, startYear, startMonth, startDay, endYear, endMonth, endDay, detail::conversion::getString(rangeType));
+            detail::string_util::trim(historicalQuotesCsv);
+            if (historicalQuotesCsv.empty() || historicalQuotesCsv.at(0) != '<') { // leading '<' indicates server error
+                return std::move(historicalQuotesCsv);
+            } else {
+                throw std::runtime_error("server (Yahoo! Finance) error - getHistoricalQuotesCsv");
+            }
+        } else {
+            throw std::runtime_error("empty instrument parameter - getHistoricalQuotesCsv");
         }
-        return detail::core::getLatestQuotesCsv(instruments, quoteTypesString);
     }
 }

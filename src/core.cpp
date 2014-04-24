@@ -32,31 +32,31 @@ namespace quote {
             std::string getLatestQuotesCsv(const std::string &instruments, const std::string &quoteTypes) {
                 std::stringstream url;
                 url << "http://finance.yahoo.com/d/quotes.csv?s="
-                << instruments
-                << "&f="
-                << quoteTypes;
+                    << instruments
+                    << "&f="
+                    << quoteTypes;
                 return detail::curl_util::getUrlData(url.str());
             }
             
             std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, const std::string &rangeType) {
                 std::stringstream url;
                 url << "http://ichart.yahoo.com/table.csv?s="
-                << instrument
-                << "&a="
-                << startMonth - 1
-                << "&b="
-                << startDay
-                << "&c="
-                << startYear
-                << "&d="
-                << endMonth - 1
-                << "&e="
-                << endDay
-                << "&f="
-                << endYear
-                << "&g="
-                << rangeType
-                << "&ignore=.csv";
+                    << instrument
+                    << "&a="
+                    << startMonth - 1
+                    << "&b="
+                    << startDay
+                    << "&c="
+                    << startYear
+                    << "&d="
+                    << endMonth - 1
+                    << "&e="
+                    << endDay
+                    << "&f="
+                    << endYear
+                    << "&g="
+                    << rangeType
+                    << "&ignore=.csv";
                 return detail::curl_util::getUrlData(url.str());
             }
 

@@ -24,7 +24,11 @@
 #ifndef quote_core_h
 #define quote_core_h
 
+#include <stdexcept>
 #include <string>
+#include "conversion.h"
+#include "QuoteType.h"
+#include "string_util.h"
 
 namespace quote {
     namespace detail {
@@ -117,7 +121,35 @@ namespace quote {
             // y    Dividend Yield
             std::string getLatestQuotesCsv(const std::string &instruments, const std::string &quoteTypes);
             
+            template<typename T>
+            std::string getLatestQuotesCsv(const std::string &instruments, const T &quoteTypes);
+            
             std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, const std::string &rangeType);
+            
+            // --
+            
+            template<typename T>
+            std::string getLatestQuotesCsv(const std::string &instruments, const T &quoteTypes) {
+                if (instruments.empty() == false) {
+                    if (quoteTypes.size() != 0) {
+                        std::string quoteTypesString;
+                        for (QuoteType quoteType : quoteTypes) {
+                            quoteTypesString.append(detail::conversion::getString(quoteType));
+                        }
+                        std::string latestQuotesCsv = detail::core::getLatestQuotesCsv(instruments, quoteTypesString);
+                        detail::string_util::trim(latestQuotesCsv);
+                        if (latestQuotesCsv.empty() || latestQuotesCsv.at(0) != '<') { // leading '<' indicates server error
+                            return std::move(latestQuotesCsv);
+                        } else {
+                            throw std::runtime_error("server (Yahoo! Finance) error - getLatestQuotesCsv");
+                        }
+                    } else {
+                        throw std::runtime_error("empty quoteTypes - getLatestQuotesCsv");
+                    }
+                } else {
+                    throw std::runtime_error("empty instruments parameter - getLatestQuotesCsv");
+                }
+            }
         }
     }
 }
