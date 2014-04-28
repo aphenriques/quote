@@ -50,7 +50,7 @@ int main(int argc, const char * argv[]) {
 
 `quote` is thread safe provided the following observation:
 
-Manual curl initialization (curl_global_init) must be performed before using quote functions in a multi-threaded context, otherwise it can be ignored.
+Manual curl initialization (curl_global_init) must be performed before using quote functions in a multi-threaded context, otherwise it can be ignored. Check <http://curl.haxx.se/libcurl/c/curl_easy_init.html>.
 
 # Install
 
@@ -111,3 +111,5 @@ quote is free software: you can redistribute it and/or modify it under the terms
 quote is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 See file `COPYING` included with this distribution or check <http://www.gnu.org/licenses/> for license information.
+
+![gplv3 logo](http://www.gnu.org/graphics/gplv3-127x51.png)

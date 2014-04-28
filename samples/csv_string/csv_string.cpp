@@ -28,6 +28,7 @@
 int main(int argc, const char * argv[]) {
     try {
         // manual curl initialization must be performed to use quote functions in a multi-threaded context, otherwise it can be ignored.
+        // check http://curl.haxx.se/libcurl/c/curl_easy_init.html
         //curl_global_init(CURL_GLOBAL_ALL);
 
         std::cout << "downloading..." << std::endl;
