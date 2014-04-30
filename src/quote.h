@@ -35,14 +35,14 @@
 #include "QuoteTypeWrapper.h"
 #include "RangeType.h"
 
-// For the folowwing functions: an exception e thrown if the required data can not be obtained.
+// For the folowwing functions: an exception is thrown if the required data can not be obtained.
 namespace quote {
     inline std::string getLatestQuotesCsv(const std::string &instruments, std::vector<QuoteType> quoteTypes);
     
     inline std::string getLatestQuotesCsv(const std::string &instruments, std::initializer_list<QuoteType> quoteTypes);
     
     template<QuoteType ...quoteTypes>
-    std::string getLatestQuotesCsv(const std::string &instruments);
+    inline std::string getLatestQuotesCsv(const std::string &instruments);
     
     std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, RangeType rangeType);
     

@@ -2,6 +2,8 @@ include ../common.mk
 
 SRC_DIRS:=.
 
+CPPFLAGS+=-fPIC
+
 SRCS:=$(wildcard $(addsuffix /*.cpp, $(SRC_DIRS)))
 OBJS:=$(addsuffix .o, $(basename $(SRCS)))
 DEPS:=$(addsuffix .d, $(basename $(SRCS)))
