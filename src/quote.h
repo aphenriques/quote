@@ -27,9 +27,7 @@
 #include <initializer_list>
 #include <string>
 #include <vector>
-#include "conversion.h"
 #include "core.h"
-#include <initializer_list>
 #include "MultipleInheritancePack.h"
 #include "QuoteType.h"
 #include "QuoteTypeWrapper.h"
@@ -44,7 +42,7 @@ namespace quote {
     template<QuoteType ...quoteTypes>
     inline std::string getLatestQuotesCsv(const std::string &instruments);
     
-    std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, RangeType rangeType);
+    inline std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, RangeType rangeType);
     
     //--
     
@@ -62,6 +60,10 @@ namespace quote {
         // check if quote types arguments are unique
         detail::MultipleInheritancePack<detail::QuoteTypeWrapper<quoteTypes>...>();
         return detail::core::getLatestQuotesCsv<std::initializer_list<QuoteType>>(instruments, {quoteTypes...});
+    }
+    
+    inline std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, const RangeType rangeType) {
+        return detail::core::getHistoricalQuotesCsv(instrument, startYear, startMonth, startDay, endYear, endMonth, endDay, detail::conversion::getString(rangeType));
     }
 }
 

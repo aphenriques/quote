@@ -54,7 +54,7 @@ Manual curl initialization (curl_global_init) must be performed before using quo
 
 # Install
 
-`quote` builds on Linux and MacOSX (Windows has not been tested yet). The library has been successfully built with:
+`quote` builds on Linux and MacOSX (Windows has not been tested yet). It requires a C++11 compatible compiler. The library has been successfully built with:
 
 * Apple LLVM version 5.0; and
 * gcc (Debian 4.7.2-5) 4.7.2
@@ -88,9 +88,9 @@ To clean everything compiled (including samples):
 
 # Usage
 
-Include `quote` headers in your project search path and link to its library. E.g:
+Set C++11 flag, include `quote` headers in your project search path and link to its library. E.g:
 
-    compiler flag: `-I/usr/local/quote`
+    compiler flag: `-std=c++11 -I/usr/local/quote`
     linker flags: `-L/usr/local/lib -lquote`
 
 Include the library header `quote.h` in your code (`namespace quote`).

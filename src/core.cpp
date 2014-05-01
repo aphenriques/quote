@@ -22,44 +22,69 @@
 //
 
 #include "core.h"
+#include <stdexcept>
 #include <sstream>
 #include <string>
 #include "curl_util.h"
+#include "string_util.h"
 
 namespace quote {
     namespace detail {
         namespace core {
             std::string getLatestQuotesCsv(const std::string &instruments, const std::string &quoteTypes) {
-                std::stringstream url;
-                url << "http://finance.yahoo.com/d/quotes.csv?s="
-                    << instruments
-                    << "&f="
-                    << quoteTypes;
-                return detail::curl_util::getUrlData(url.str());
+                if (instruments.empty() == false) {
+                    if (quoteTypes.empty() == false) {
+                        std::stringstream url;
+                        url << "http://finance.yahoo.com/d/quotes.csv?s="
+                            << instruments
+                            << "&f="
+                            << quoteTypes;
+                        std::string latestQuotesCsv = detail::curl_util::getUrlData(url.str());
+                        detail::string_util::trim(latestQuotesCsv);
+                        if (latestQuotesCsv.empty() || latestQuotesCsv.at(0) != '<') { // leading '<' indicates server error
+                            return std::move(latestQuotesCsv);
+                        } else {
+                            throw std::runtime_error("server (Yahoo! Finance) error - getLatestQuotesCsv");
+                        }
+                    } else {
+                        throw std::runtime_error("empty quoteTypes - getLatestQuotesCsv");
+                    }
+                } else {
+                    throw std::runtime_error("empty instruments parameter - getLatestQuotesCsv");
+                }
             }
             
             std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, const std::string &rangeType) {
-                std::stringstream url;
-                url << "http://ichart.yahoo.com/table.csv?s="
-                    << instrument
-                    << "&a="
-                    << startMonth - 1
-                    << "&b="
-                    << startDay
-                    << "&c="
-                    << startYear
-                    << "&d="
-                    << endMonth - 1
-                    << "&e="
-                    << endDay
-                    << "&f="
-                    << endYear
-                    << "&g="
-                    << rangeType
-                    << "&ignore=.csv";
-                return detail::curl_util::getUrlData(url.str());
+                if (instrument.empty() == false) {
+                    std::stringstream url;
+                    url << "http://ichart.yahoo.com/table.csv?s="
+                        << instrument
+                        << "&a="
+                        << startMonth - 1
+                        << "&b="
+                        << startDay
+                        << "&c="
+                        << startYear
+                        << "&d="
+                        << endMonth - 1
+                        << "&e="
+                        << endDay
+                        << "&f="
+                        << endYear
+                        << "&g="
+                        << rangeType
+                        << "&ignore=.csv";
+                    std::string historicalQuotesCsv = detail::curl_util::getUrlData(url.str());
+                    detail::string_util::trim(historicalQuotesCsv);
+                    if (historicalQuotesCsv.empty() || historicalQuotesCsv.at(0) != '<') { // leading '<' indicates server error
+                        return std::move(historicalQuotesCsv);
+                    } else {
+                        throw std::runtime_error("server (Yahoo! Finance) error - getHistoricalQuotesCsv");
+                    }
+                } else {
+                    throw std::runtime_error("empty instrument parameter - getHistoricalQuotesCsv");
+                }
             }
-
         }
     }
 }

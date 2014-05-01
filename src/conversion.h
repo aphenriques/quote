@@ -33,6 +33,7 @@ namespace quote {
         namespace conversion {
             std::string getString(RangeType rangeType);
             std::string getString(QuoteType quoteType);
+
         }
     }
 }
