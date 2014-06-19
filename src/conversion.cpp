@@ -23,6 +23,7 @@
 
 #include "conversion.h"
 #include <stdexcept>
+#include "Exception.h"
 #include "QuoteType.h"
 #include "RangeType.h"
 
@@ -40,7 +41,7 @@ namespace quote {
                     case RangeType::dividendsOnly:
                         return "v";
                 }
-                throw std::logic_error("missing RangeType conversion");
+                throw Exception(__FILE__, __LINE__, __func__, "missing RangeType conversion");
             }
             
             std::string getString(QuoteType quoteType) {
@@ -216,7 +217,7 @@ namespace quote {
                     case QuoteType::dividendYield:
                         return "y";
                 }
-                throw std::logic_error("missing RangeType conversion");
+                throw Exception(__FILE__, __LINE__, __func__, "missing RangeType conversion");
             }
         }
     }

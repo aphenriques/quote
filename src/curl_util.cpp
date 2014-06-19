@@ -27,6 +27,7 @@
 #include <string>
 #include <utility>
 #include <curl/curl.h>
+#include "Exception.h"
 
 namespace quote {
     namespace detail {
@@ -34,7 +35,7 @@ namespace quote {
             std::shared_ptr<CURL> createCurlHandle() {
                 std::shared_ptr<CURL> curlHandle(curl_easy_init(), curl_easy_cleanup);
                 if (curlHandle.get() == nullptr) {
-                    throw std::runtime_error("curl_easy_init() failure");
+                    throw Exception(__FILE__, __LINE__, __func__, "curl_easy_init() failure");
                 }
                 return curlHandle;
             };
@@ -42,7 +43,7 @@ namespace quote {
             void perform(CURL *handle) {
                 CURLcode code = curl_easy_perform(handle);
                 if (code != CURLE_OK) {
-                    throw std::runtime_error(std::string("curl_easy_perform error: ") + curl_easy_strerror(code));
+                    throw Exception(__FILE__, __LINE__, __func__, std::string("curl_easy_perform error: ") + curl_easy_strerror(code));
                 }
             }
             

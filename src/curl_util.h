@@ -28,6 +28,7 @@
 #include <stdexcept>
 #include <string>
 #include <curl/curl.h>
+#include "Exception.h"
 
 namespace quote {
     namespace detail {
@@ -49,7 +50,7 @@ namespace quote {
             void setOpt(CURL *handle, CURLoption option, T parameter) {
                 CURLcode code = curl_easy_setopt(handle, option, parameter);
                 if (code != CURLE_OK) {
-                    throw std::runtime_error(std::string("curl_easy_setopt error: ") + curl_easy_strerror(code));
+                    throw Exception(__FILE__, __LINE__, __func__, std::string("curl_easy_setopt error: ") + curl_easy_strerror(code));
                 }
             }
         }

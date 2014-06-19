@@ -26,6 +26,7 @@
 #include <sstream>
 #include <string>
 #include "curl_util.h"
+#include "Exception.h"
 #include "string_util.h"
 
 namespace quote {
@@ -44,13 +45,13 @@ namespace quote {
                         if (latestQuotesCsv.empty() || latestQuotesCsv.at(0) != '<') { // leading '<' indicates server error
                             return std::move(latestQuotesCsv);
                         } else {
-                            throw std::runtime_error("server (Yahoo! Finance) error - getLatestQuotesCsv");
+                            throw Exception(__FILE__, __LINE__, __func__, "server (Yahoo! Finance) error");
                         }
                     } else {
-                        throw std::runtime_error("empty quoteTypes - getLatestQuotesCsv");
+                        throw Exception(__FILE__, __LINE__, __func__, "empty quoteTypes");
                     }
                 } else {
-                    throw std::runtime_error("empty instruments parameter - getLatestQuotesCsv");
+                    throw Exception(__FILE__, __LINE__, __func__, "empty instruments parameter");
                 }
             }
             
@@ -79,10 +80,10 @@ namespace quote {
                     if (historicalQuotesCsv.empty() || historicalQuotesCsv.at(0) != '<') { // leading '<' indicates server error
                         return std::move(historicalQuotesCsv);
                     } else {
-                        throw std::runtime_error("server (Yahoo! Finance) error - getHistoricalQuotesCsv");
+                        throw Exception(__FILE__, __LINE__, __func__, "server (Yahoo! Finance) error");
                     }
                 } else {
-                    throw std::runtime_error("empty instrument parameter - getHistoricalQuotesCsv");
+                    throw Exception(__FILE__, __LINE__, __func__, "empty instrument parameter");
                 }
             }
         }
