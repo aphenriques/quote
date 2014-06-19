@@ -88,12 +88,12 @@ To clean everything compiled (including samples):
 
 # Usage
 
-Set C++11 flag, include `quote` headers in your project search path and link to its library. E.g:
+Set the compiler standard to C++11, include `quote` headers in the search path and link to its library. E.g:
 
-    compiler flag: `-std=c++11 -I/usr/local/quote`
+    compiler flags: `-std=c++11 -I/usr/local/quote`
     linker flags: `-L/usr/local/lib -lquote`
 
-Include the library header `quote.h` in your code (`namespace quote`).
+Include the library header `quote.h` (`namespace quote`).
 
 Check the `samples` directory for examples.
 
