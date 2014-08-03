@@ -33,15 +33,48 @@
 #include "QuoteTypeWrapper.h"
 #include "RangeType.h"
 
-// For the folowwing functions: an exception is thrown if the required data can not be obtained.
+//! \file quote.h
+//! \brief This header contains all `quote` functionality
+//!
+//! This is the only file that should be included to use `quote`
+
+//! \namespace quote
+//! \brief Namespace where all quote functionality resides
+//!
+//! \warning \{
+//! `quote` is thread safe provided the following:
+//! Manual curl initialization (curl_global_init) must be performed before using quote functions in a multi-threaded context, otherwise it can be ignored. Check <http://curl.haxx.se/libcurl/c/curl_easy_init.html>
+//! \}
 namespace quote {
+    // For the folowwing functions: an exception is thrown if the required data can not be obtained. (FIXME doxygen documentation format)
+    
+    //! \brief Get quotes in csv string
+    //!
+    //! Throws a quote::Exception if retrieval fails (it is not uncommon)
+    //! \param instruments instrument string (e.g "MSFT" for Microsoft quotes)
+    //! \param quoteTypes quotes list. \sa quote::QuoteType
+    //! \return quotes in csv format
     inline std::string getLatestQuotesCsv(const std::string &instruments, std::vector<QuoteType> quoteTypes);
     
+    
+    //! \copydoc getLatestQuotesCsv(const std::string &instruments, std::vector<QuoteType> quoteTypes)
     inline std::string getLatestQuotesCsv(const std::string &instruments, std::initializer_list<QuoteType> quoteTypes);
     
+    //! \brief Get quotes in csv string
+    //!
+    //! Throws a quote::Exception if retrieval fails (it is not uncommon)
+    //! \param instruments instrument string (e.g "MSFT" for Microsoft quotes)
+    //! \tparam quoteTypes quotes list. \sa quote::QuoteType
+    //! \return quotes in csv format
     template<QuoteType ...quoteTypes>
     inline std::string getLatestQuotesCsv(const std::string &instruments);
     
+    //! \brief Get historical quotes
+    //!
+    //! Throws a quote::Exception if retrieval fails (it is not uncommon)
+    //! \param instruments instrument string (e.g "MSFT" for Microsoft quotes)
+    //! \param rangeType daily, weekly, monthly or dividends only historical quotes \sa quote::RangeType
+    //! \return historical quotes in csv format. Includes csv header
     inline std::string getHistoricalQuotesCsv(const std::string &instrument, unsigned startYear, unsigned startMonth, unsigned startDay, unsigned endYear, unsigned endMonth, unsigned endDay, RangeType rangeType);
     
     //--

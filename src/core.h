@@ -33,7 +33,6 @@
 namespace quote {
     namespace detail {
         namespace core {
-            // quoteTypes ( http://www.gummy-stuff.org/Yahoo-data.htm ):
             // a    Ask
             // a2   Average Daily Volume
             // a5   Ask Size

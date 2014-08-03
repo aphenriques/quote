@@ -24,8 +24,8 @@
 #ifndef quote_QuoteType_h
 #define quote_QuoteType_h
 
-// quoteTypes ( http://www.gummy-stuff.org/Yahoo-data.htm ):
 namespace quote {
+    //! \brief Quote types
     enum class QuoteType {
         ask, // a
         averageDailyVolume, // a2

@@ -25,6 +25,7 @@
 #define quote_RangeType_h
 
 namespace quote {
+    //! \brief Historical data quote range types
     enum class RangeType {
         daily, // d
         weekly, // w
