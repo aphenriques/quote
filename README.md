@@ -100,7 +100,7 @@ Check the `samples` directory for examples.
 
 # Documentation
 
-See doc/html/index.html for the doxygen generated quote API reference.
+See doc/html/index.html for the doxygen generated `quote` API reference.
 
 
 # Author
