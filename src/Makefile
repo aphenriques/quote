@@ -2,7 +2,8 @@ include ../common.mk
 
 SRC_DIRS:=.
 
-CPPFLAGS+=-fPIC
+CXXFLAGS+=-fPIC
+ARFLAGS:=rcs
 
 SRCS:=$(wildcard $(addsuffix /*.cpp, $(SRC_DIRS)))
 OBJS:=$(addsuffix .o, $(basename $(SRCS)))
@@ -17,16 +18,16 @@ static: $(QUOTE_STATIC_LIB_NAME)
 shared: $(QUOTE_SHARED_LIB_NAME)
 
 $(QUOTE_STATIC_LIB_NAME): $(OBJS)
-	ar rcs $@ $^
+	$(AR) $(ARFLAGS) $@ $^
 
 $(QUOTE_SHARED_LIB_NAME): $(OBJS)
 	$(CXX) -shared $(LDFLAGS) $(LDLIBS) $^ -o $@
 
 %.d: %.cpp
-	$(CXX) $(CPPFLAGS) -MP -MM -MF $@ -MT '$@ $(addsuffix .o, $(basename $<))' $<
+	$(CXX) $(CXXFLAGS) -MP -MM -MF $@ -MT '$@ $(addsuffix .o, $(basename $<))' $<
 
 clean:
-	rm -f $(DEPS) $(OBJS) $(QUOTE_STATIC_LIB_NAME) $(QUOTE_SHARED_LIB_NAME)
+	$(RM) $(DEPS) $(OBJS) $(QUOTE_STATIC_LIB_NAME) $(QUOTE_SHARED_LIB_NAME)
 
 ifneq ($(MAKECMDGOALS),clean)
 -include $(DEPS)

@@ -20,8 +20,8 @@ install: all
 	install -p -m 0644 src/$(QUOTE_STATIC_LIB_NAME) src/$(QUOTE_SHARED_LIB_NAME) $(INSTALL_LIB)
 
 uninstall:
-	rm -fR $(INSTALL_INC)
-	rm -f $(INSTALL_LIB)/$(QUOTE_STATIC_LIB_NAME) $(INSTALL_LIB)/$(QUOTE_SHARED_LIB_NAME)
+	$(RM) -R $(INSTALL_INC)
+	$(RM) $(INSTALL_LIB)/$(QUOTE_STATIC_LIB_NAME) $(INSTALL_LIB)/$(QUOTE_SHARED_LIB_NAME)
 
 clean:
 	cd src && $(MAKE) $@
