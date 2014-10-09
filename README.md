@@ -97,6 +97,12 @@ Include the library header `quote.h` (`namespace quote`).
 
 Check the `samples` directory for examples.
 
+
+# Documentation
+
+See doc/html/index.html for the doxygen generated quote API reference.
+
+
 # Author
 
 `quote` was made by André Pereira Henriques [aphenriques (at) outlook (dot) com].
