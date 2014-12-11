@@ -25,7 +25,7 @@ clean:
 	rm -f $(DEPS) $(OBJS) $(SAMPLE_EXECUTALBE)
 
 %.d: %.cpp
-	$(CXX) $(CPPFLAGS) -MP -MM -MF $@ -MT '$@ $(addsuffix .o, $(basename $<))' $<
+	$(CXX) $(CXXFLAGS) -MP -MM -MF $@ -MT '$@ $(addsuffix .o, $(basename $<))' $<
 
 ifneq ($(MAKECMDGOALS),clean)
 -include $(DEPS)
