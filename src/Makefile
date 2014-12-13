@@ -2,6 +2,7 @@ include ../common.mk
 
 SRC_DIRS:=.
 
+LDLIBS+=$(PROJECT_LDLIBS)
 CXXFLAGS+=-fPIC
 ARFLAGS:=rcs
 

@@ -7,4 +7,4 @@ PROJECT_SHARED_LIB_NAME:=libquote.so
 
 CXXFLAGS:=-std=c++11 -O3 -I/usr/local/include
 LDFLAGS:=-L/usr/local/lib -L/usr/lib/x86_64-linux-gnu/ -L/usr/lib
-LDLIBS:=-lcurl
+PROJECT_LDLIBS:=-lcurl
