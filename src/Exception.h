@@ -27,6 +27,11 @@
 #include <stdexcept>
 #include <string>
 
+// MSVC compatibility: http://stackoverflow.com/a/2282433
+#if defined ( WIN32 )
+#define __func__ __FUNCTION__
+#endif
+
 namespace quote {
     class Exception : public std::runtime_error {
     public:
