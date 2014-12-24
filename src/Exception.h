@@ -27,8 +27,8 @@
 #include <stdexcept>
 #include <string>
 
-// MSVC compatibility: http://stackoverflow.com/a/2282433
-#if defined ( WIN32 )
+// http://sourceforge.net/p/predef/wiki/OperatingSystems/
+#if defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
 #define __func__ __FUNCTION__
 #endif
 

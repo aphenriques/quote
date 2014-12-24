@@ -22,7 +22,6 @@
 //
 
 #include "conversion.h"
-#include <stdexcept>
 #include "Exception.h"
 #include "QuoteType.h"
 #include "RangeType.h"

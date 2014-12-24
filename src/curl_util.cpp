@@ -23,7 +23,6 @@
 
 #include "curl_util.h"
 #include <memory>
-#include <stdexcept>
 #include <string>
 #include <utility>
 #include <curl/curl.h>

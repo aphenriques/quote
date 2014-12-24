@@ -22,7 +22,6 @@
 //
 
 #include "core.h"
-#include <stdexcept>
 #include <sstream>
 #include <string>
 #include "curl_util.h"

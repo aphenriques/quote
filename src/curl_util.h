@@ -25,7 +25,6 @@
 #define quote_curl_util_h
 
 #include <memory>
-#include <stdexcept>
 #include <string>
 #include <curl/curl.h>
 #include "Exception.h"
