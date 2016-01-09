@@ -1,8 +1,8 @@
 //
-//  Exception.cpp
+//  win_compatibility.h
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,8 +21,12 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "Exception.h"
+#ifndef quote_win_compatibility_h
+#define quote_win_compatibility_h
 
-namespace quote {
-    Exception::Exception(const std::string &fileName, unsigned lineNumber, const std::string &functionName, const std::string &errorMessage) : std::runtime_error(errorMessage + " at " + fileName + ":" + std::to_string(lineNumber) + ":(" + functionName + ")") {}
-}
+// http://sourceforge.net/p/predef/wiki/OperatingSystems/
+#if defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
+#define __func__ __FUNCTION__
+#endif
+
+#endif /* quote_win_compatibility_h */

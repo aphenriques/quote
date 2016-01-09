@@ -2,7 +2,7 @@
 //  curl_util.h
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -27,7 +27,8 @@
 #include <memory>
 #include <string>
 #include <curl/curl.h>
-#include "Exception.h"
+#include "exception/Exception.h"
+#include "win_compatibility.h"
 
 namespace quote {
     namespace detail {
@@ -49,7 +50,7 @@ namespace quote {
             void setOpt(CURL *handle, CURLoption option, T parameter) {
                 CURLcode code = curl_easy_setopt(handle, option, parameter);
                 if (code != CURLE_OK) {
-                    throw Exception(__FILE__, __LINE__, __func__, std::string("curl_easy_setopt error: ") + curl_easy_strerror(code));
+                    throw exception::LogicException(__FILE__, __LINE__, __func__, std::string("curl_easy_setopt error: ") + curl_easy_strerror(code));
                 }
             }
         }

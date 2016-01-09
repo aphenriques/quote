@@ -2,7 +2,7 @@
 //  quote.h
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -50,7 +50,7 @@ namespace quote {
     
     //! \brief Get quotes in csv string
     //!
-    //! Throws a quote::Exception if retrieval fails (it is not uncommon)
+    //! Throws a std::runtime_error if retrieval fails (it is not uncommon)
     //! \param instruments instrument string (e.g "MSFT" for Microsoft quotes)
     //! \param quoteTypes quotes list. \sa quote::QuoteType
     //! \return quotes in csv format
@@ -62,7 +62,7 @@ namespace quote {
     
     //! \brief Get quotes in csv string
     //!
-    //! Throws a quote::Exception if retrieval fails (it is not uncommon)
+    //! Throws a std::runtime_error if retrieval fails (it is not uncommon)
     //! \param instruments instrument string (e.g "MSFT" for Microsoft quotes)
     //! \tparam quoteTypes quotes list. \sa quote::QuoteType
     //! \return quotes in csv format
@@ -71,7 +71,7 @@ namespace quote {
     
     //! \brief Get historical quotes
     //!
-    //! Throws a quote::Exception if retrieval fails (it is not uncommon)
+    //! Throws a std::runtime_error if retrieval fails (it is not uncommon)
     //! \param instruments instrument string (e.g "MSFT" for Microsoft quotes)
     //! \param rangeType daily, weekly, monthly or dividends only historical quotes \sa quote::RangeType
     //! \return historical quotes in csv format. Includes csv header

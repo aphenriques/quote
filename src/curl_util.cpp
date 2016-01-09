@@ -2,7 +2,7 @@
 //  curl_util.cpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -26,7 +26,8 @@
 #include <string>
 #include <utility>
 #include <curl/curl.h>
-#include "Exception.h"
+#include "exception/Exception.h"
+#include "win_compatibility.h"
 
 namespace quote {
     namespace detail {
@@ -34,7 +35,7 @@ namespace quote {
             std::shared_ptr<CURL> createCurlHandle() {
                 std::shared_ptr<CURL> curlHandle(curl_easy_init(), curl_easy_cleanup);
                 if (curlHandle.get() == nullptr) {
-                    throw Exception(__FILE__, __LINE__, __func__, "curl_easy_init() failure");
+                    throw exception::LogicException(__FILE__, __LINE__, __func__, "curl_easy_init() failure");
                 }
                 return curlHandle;
             };
@@ -42,7 +43,7 @@ namespace quote {
             void perform(CURL *handle) {
                 CURLcode code = curl_easy_perform(handle);
                 if (code != CURLE_OK) {
-                    throw Exception(__FILE__, __LINE__, __func__, std::string("curl_easy_perform error: ") + curl_easy_strerror(code));
+                    throw exception::LogicException(__FILE__, __LINE__, __func__, std::string("curl_easy_perform error: ") + curl_easy_strerror(code));
                 }
             }
             

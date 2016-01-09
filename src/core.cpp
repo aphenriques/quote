@@ -2,7 +2,7 @@
 //  core.cpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -24,9 +24,10 @@
 #include "core.h"
 #include <sstream>
 #include <string>
+#include "exception/Exception.h"
 #include "curl_util.h"
-#include "Exception.h"
 #include "string_util.h"
+#include "win_compatibility.h"
 
 namespace quote {
     namespace detail {
@@ -44,13 +45,13 @@ namespace quote {
                         if (latestQuotesCsv.empty() || latestQuotesCsv.at(0) != '<') { // leading '<' indicates server error
                             return std::move(latestQuotesCsv);
                         } else {
-                            throw Exception(__FILE__, __LINE__, __func__, "server (Yahoo! Finance) error");
+                            throw exception::RuntimeException(__FILE__, __LINE__, __func__, "server (Yahoo! Finance) error");
                         }
                     } else {
-                        throw Exception(__FILE__, __LINE__, __func__, "empty quoteTypes");
+                        throw exception::LogicException(__FILE__, __LINE__, __func__, "empty quoteTypes");
                     }
                 } else {
-                    throw Exception(__FILE__, __LINE__, __func__, "empty instruments parameter");
+                    throw exception::LogicException(__FILE__, __LINE__, __func__, "empty instruments parameter");
                 }
             }
             
@@ -79,10 +80,10 @@ namespace quote {
                     if (historicalQuotesCsv.empty() || historicalQuotesCsv.at(0) != '<') { // leading '<' indicates server error
                         return std::move(historicalQuotesCsv);
                     } else {
-                        throw Exception(__FILE__, __LINE__, __func__, "server (Yahoo! Finance) error");
+                        throw exception::RuntimeException(__FILE__, __LINE__, __func__, "server (Yahoo! Finance) error");
                     }
                 } else {
-                    throw Exception(__FILE__, __LINE__, __func__, "empty instrument parameter");
+                    throw exception::LogicException(__FILE__, __LINE__, __func__, "empty instrument parameter");
                 }
             }
         }

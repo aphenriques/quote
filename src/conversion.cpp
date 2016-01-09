@@ -2,7 +2,7 @@
 //  conversion.cpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,10 +21,11 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#include "exception/Exception.h"
 #include "conversion.h"
-#include "Exception.h"
 #include "QuoteType.h"
 #include "RangeType.h"
+#include "win_compatibility.h"
 
 namespace quote {
     namespace detail {
@@ -40,7 +41,7 @@ namespace quote {
                     case RangeType::dividendsOnly:
                         return "v";
                 }
-                throw Exception(__FILE__, __LINE__, __func__, "missing RangeType conversion");
+                throw exception::LogicException(__FILE__, __LINE__, __func__, "missing RangeType conversion");
             }
             
             std::string getString(QuoteType quoteType) {
@@ -216,7 +217,7 @@ namespace quote {
                     case QuoteType::dividendYield:
                         return "y";
                 }
-                throw Exception(__FILE__, __LINE__, __func__, "missing RangeType conversion");
+                throw exception::LogicException(__FILE__, __LINE__, __func__, "missing RangeType conversion");
             }
         }
     }
