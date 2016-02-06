@@ -1,6 +1,6 @@
 include common.mk
 
-.PHONY: all static shared samples clean
+.PHONY: all static shared install uninstall clean
 
 all:
 	cd src && $(MAKE) $@
