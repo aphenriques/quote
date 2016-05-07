@@ -39,15 +39,6 @@ namespace quote {
             
             // trim from both ends
             std::string & trim(std::string &s);
-            
-            // trim from start
-            inline std::string & trimLeft(const std::string &s);
-            
-            // trim from end
-            inline std::string & trimRight(const std::string &s);
-            
-            // trim from both ends
-            inline std::string & trim(const std::string &s);
         }
     }
 }
