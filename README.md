@@ -54,10 +54,13 @@ Manual curl initialization (curl_global_init) must be performed before using quo
 
 # Install
 
-`quote` builds on Linux and MacOSX (Windows has not been tested yet). It requires a C++11 compatible compiler. The library has been successfully built with:
+`quote` builds on Linux, MacOSX and Windows. It requires a C++11 compatible compiler. The library has been successfully built with:
 
-* Apple LLVM version 5.0; and
-* gcc (Debian 4.7.2-5) 4.7.2
+* gcc (Debian 4.7.2-5) 4.7.2; and
+* Apple LLVM version 5.0;
+* Visual Studio Express 2013
+
+The Microsoft Visual Studio Solution file is on `msvc/quote` directory.
 
 Modify `common.mk` for `quote` install configuration.
 
@@ -85,7 +88,6 @@ To clean everything compiled (including samples):
 
     $ make clean
 
-
 # Usage
 
 Set the compiler standard to C++11, include `quote` headers in the search path and link to its library. E.g:
@@ -110,7 +112,7 @@ See doc/html/index.html for the doxygen generated `quote` API reference.
 
 # License
 
-Copyright (C) 2013, 2014  André Pereira Henriques.
+Copyright (C) 2013, 2014, 2015, 2016  André Pereira Henriques.
 
 quote is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
