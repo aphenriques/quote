@@ -58,7 +58,7 @@ Manual curl initialization (curl_global_init) must be performed before using quo
 
 * gcc (Debian 4.7.2-5) 4.7.2; and
 * Apple LLVM version 5.0;
-* Visual Studio Express 2013
+* Microsoft Visual Studio Express 2013
 
 The Microsoft Visual Studio Solution file is on `msvc/quote` directory.
 
