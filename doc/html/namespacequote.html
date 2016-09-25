@@ -39,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -70,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,7 +81,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -93,11 +91,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Namespace where all quote functionality resides.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquote_1_1_exception.html">Exception</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a521be528fcf638263df11bb14df00dfb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a521be528fcf638263df11bb14df00dfb"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacequote.html#a521be528fcf638263df11bb14df00dfb">QuoteType</a> { <br />
@@ -308,7 +301,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get historical quotes. </p>
-<p>Throws a <a class="el" href="classquote_1_1_exception.html">quote::Exception</a> if retrieval fails (it is not uncommon) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Throws a std::runtime_error if retrieval fails (it is not uncommon) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">instruments</td><td>instrument string (e.g "MSFT" for Microsoft quotes) </td></tr>
     <tr><td class="paramname">rangeType</td><td>daily, weekly, monthly or dividends only historical quotes </td></tr>
@@ -353,7 +346,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get quotes in csv string. </p>
-<p>Throws a <a class="el" href="classquote_1_1_exception.html">quote::Exception</a> if retrieval fails (it is not uncommon) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Throws a std::runtime_error if retrieval fails (it is not uncommon) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">instruments</td><td>instrument string (e.g "MSFT" for Microsoft quotes) </td></tr>
     <tr><td class="paramname">quoteTypes</td><td>quotes list. </td></tr>
@@ -398,7 +391,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get quotes in csv string. </p>
-<p>Throws a <a class="el" href="classquote_1_1_exception.html">quote::Exception</a> if retrieval fails (it is not uncommon) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Throws a std::runtime_error if retrieval fails (it is not uncommon) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">instruments</td><td>instrument string (e.g "MSFT" for Microsoft quotes) </td></tr>
     <tr><td class="paramname">quoteTypes</td><td>quotes list. </td></tr>
@@ -435,7 +428,7 @@ template&lt;QuoteType... quoteTypes&gt; </div>
 </div><div class="memdoc">
 
 <p>Get quotes in csv string. </p>
-<p>Throws a <a class="el" href="classquote_1_1_exception.html">quote::Exception</a> if retrieval fails (it is not uncommon) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Throws a std::runtime_error if retrieval fails (it is not uncommon) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">instruments</td><td>instrument string (e.g "MSFT" for Microsoft quotes) </td></tr>
   </table>
@@ -455,7 +448,7 @@ template&lt;QuoteType... quoteTypes&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 3 2014 15:12:22 for quote by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 25 2016 18:29:19 for quote by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

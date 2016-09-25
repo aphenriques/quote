@@ -7,24 +7,20 @@
 
 var indexSectionsWithContent =
 {
-  0: "egqr",
-  1: "e",
-  2: "q",
-  3: "q",
-  4: "g",
-  5: "qr",
-  6: "q"
+  0: "gqr",
+  1: "q",
+  2: "g",
+  3: "qr",
+  4: "q"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes",
-  2: "namespaces",
-  3: "files",
-  4: "functions",
-  5: "enums",
-  6: "pages"
+  1: "namespaces",
+  2: "functions",
+  3: "enums",
+  4: "pages"
 };
 
 function convertToId(search)
