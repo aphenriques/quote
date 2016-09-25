@@ -1,8 +1,8 @@
 //
-//  string_util.h
+//  win_compatibility.hpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,26 +21,12 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_string_util_h
-#define quote_string_util_h
+#ifndef quote_win_compatibility_hpp
+#define quote_win_compatibility_hpp
 
-#include <string>
-
-namespace quote {
-    namespace detail {
-        namespace string_util {
-            // trim functions from http://stackoverflow.com/questions/216823/whats-the-best-way-to-trim-stdstring/217605#217605
-            
-            // trim from start
-            std::string & trimLeft(std::string &s);
-            
-            // trim from end
-            std::string & trimRight(std::string &s);
-            
-            // trim from both ends
-            std::string & trim(std::string &s);
-        }
-    }
-}
-
+// http://sourceforge.net/p/predef/wiki/OperatingSystems/
+#if defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
+#define __func__ __FUNCTION__
 #endif
+
+#endif /* quote_win_compatibility_hpp */

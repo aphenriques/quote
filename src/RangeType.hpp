@@ -1,8 +1,8 @@
 //
-//  win_compatibility.h
+//  RangeType.hpp
 //  quote
 //
-//  Copyright (C) 2016  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,12 +21,17 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_win_compatibility_h
-#define quote_win_compatibility_h
+#ifndef quote_RangeType_hpp
+#define quote_RangeType_hpp
 
-// http://sourceforge.net/p/predef/wiki/OperatingSystems/
-#if defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
-#define __func__ __FUNCTION__
+namespace quote {
+    //! \brief Historical data quote range types
+    enum class RangeType {
+        daily, // d
+        weekly, // w
+        monthly, // m
+        dividendsOnly // v
+    };
+}
+
 #endif
-
-#endif /* quote_win_compatibility_h */

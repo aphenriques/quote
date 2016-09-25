@@ -1,8 +1,8 @@
 //
-//  conversion.h
+//  MultipleInheritancePack.hpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,20 +21,13 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_conversion_h
-#define quote_conversion_h
-
-#include <string>
-#include "QuoteType.h"
-#include "RangeType.h"
+#ifndef quote_MultipleInheritancePack_hpp
+#define quote_MultipleInheritancePack_hpp
 
 namespace quote {
     namespace detail {
-        namespace conversion {
-            std::string getString(RangeType rangeType);
-            std::string getString(QuoteType quoteType);
-
-        }
+        template<typename ...T>
+        class MultipleInheritancePack : public T... {};
     }
 }
 

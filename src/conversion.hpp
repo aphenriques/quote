@@ -1,8 +1,8 @@
 //
-//  QuoteTypeWrapper.h
+//  conversion.hpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,18 +21,20 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_QuoteTypeWrapper_h
-#define quote_QuoteTypeWrapper_h
+#ifndef quote_conversion_hpp
+#define quote_conversion_hpp
 
-#include "QuoteType.h"
+#include <string>
+#include "QuoteType.hpp"
+#include "RangeType.hpp"
 
 namespace quote {
     namespace detail {
-        template<QuoteType quoteType>
-        class QuoteTypeWrapper {
-        protected:
-            QuoteTypeWrapper() = default;
-        };
+        namespace conversion {
+            std::string getString(RangeType rangeType);
+            std::string getString(QuoteType quoteType);
+
+        }
     }
 }
 

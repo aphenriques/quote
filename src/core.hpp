@@ -1,8 +1,8 @@
 //
-//  core.h
+//  core.hpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,14 +21,14 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_core_h
-#define quote_core_h
+#ifndef quote_core_hpp
+#define quote_core_hpp
 
 #include <stdexcept>
 #include <string>
-#include "conversion.h"
-#include "QuoteType.h"
-#include "string_util.h"
+#include "conversion.hpp"
+#include "QuoteType.hpp"
+#include "string_util.hpp"
 
 namespace quote {
     namespace detail {

@@ -1,5 +1,5 @@
 //
-//  quote.h
+//  quote.hpp
 //  quote
 //
 //  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
@@ -21,17 +21,17 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_quote_h
-#define quote_quote_h
+#ifndef quote_quote_hpp
+#define quote_quote_hpp
 
 #include <initializer_list>
 #include <string>
 #include <vector>
-#include "core.h"
-#include "MultipleInheritancePack.h"
-#include "QuoteType.h"
-#include "QuoteTypeWrapper.h"
-#include "RangeType.h"
+#include "core.hpp"
+#include "MultipleInheritancePack.hpp"
+#include "QuoteType.hpp"
+#include "QuoteTypeWrapper.hpp"
+#include "RangeType.hpp"
 
 //! \file quote.h
 //! \brief This header contains all `quote` functionality

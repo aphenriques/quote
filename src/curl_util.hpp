@@ -1,5 +1,5 @@
 //
-//  curl_util.h
+//  curl_util.hpp
 //  quote
 //
 //  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
@@ -21,14 +21,14 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_curl_util_h
-#define quote_curl_util_h
+#ifndef quote_curl_util_hpp
+#define quote_curl_util_hpp
 
 #include <memory>
 #include <string>
 #include <curl/curl.h>
-#include "exception/Exception.h"
-#include "win_compatibility.h"
+#include "exception/Exception.hpp"
+#include "win_compatibility.hpp"
 
 namespace quote {
     namespace detail {

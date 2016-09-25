@@ -1,8 +1,8 @@
 //
-//  QuoteType.h
+//  QuoteType.hpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,8 +21,8 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_QuoteType_h
-#define quote_QuoteType_h
+#ifndef quote_QuoteType_hpp
+#define quote_QuoteType_hpp
 
 namespace quote {
     //! \brief Quote types

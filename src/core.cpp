@@ -21,13 +21,13 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "core.h"
+#include "core.hpp"
 #include <sstream>
 #include <string>
-#include "exception/Exception.h"
-#include "curl_util.h"
-#include "string_util.h"
-#include "win_compatibility.h"
+#include "exception/Exception.hpp"
+#include "curl_util.hpp"
+#include "string_util.hpp"
+#include "win_compatibility.hpp"
 
 namespace quote {
     namespace detail {

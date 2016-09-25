@@ -1,8 +1,8 @@
 //
-//  MultipleInheritancePack.h
+//  QuoteTypeWrapper.hpp
 //  quote
 //
-//  Copyright (C) 2013, 2014  André Pereira Henriques
+//  Copyright (C) 2013, 2014, 2016  André Pereira Henriques
 //  aphenriques (at) outlook (dot) com
 //
 //  This file is part of quote.
@@ -21,13 +21,18 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef quote_MultipleInheritancePack_h
-#define quote_MultipleInheritancePack_h
+#ifndef quote_QuoteTypeWrapper_hpp
+#define quote_QuoteTypeWrapper_hpp
+
+#include "QuoteType.hpp"
 
 namespace quote {
     namespace detail {
-        template<typename ...T>
-        class MultipleInheritancePack : public T... {};
+        template<QuoteType quoteType>
+        class QuoteTypeWrapper {
+        protected:
+            QuoteTypeWrapper() = default;
+        };
     }
 }
 

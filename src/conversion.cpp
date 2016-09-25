@@ -21,11 +21,11 @@
 //  along with quote.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "exception/Exception.h"
-#include "conversion.h"
-#include "QuoteType.h"
-#include "RangeType.h"
-#include "win_compatibility.h"
+#include "exception/Exception.hpp"
+#include "conversion.hpp"
+#include "QuoteType.hpp"
+#include "RangeType.hpp"
+#include "win_compatibility.hpp"
 
 namespace quote {
     namespace detail {
