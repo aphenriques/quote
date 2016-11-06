@@ -38,7 +38,7 @@ namespace quote {
                     throw exception::LogicException(__FILE__, __LINE__, __func__, "curl_easy_init() failure");
                 }
                 return curlHandle;
-            };
+            }
 
             void perform(CURL *handle) {
                 CURLcode code = curl_easy_perform(handle);
@@ -46,13 +46,13 @@ namespace quote {
                     throw exception::LogicException(__FILE__, __LINE__, __func__, std::string("curl_easy_perform error: ") + curl_easy_strerror(code));
                 }
             }
-            
+
             size_t writeToStringCallBack(void *buffer, size_t size, size_t nmemb, void *string) {
                 const size_t sizeInBytes = size*nmemb;
                 static_cast<std::string *>(string)->append(static_cast<const char * >(buffer), sizeInBytes);
                 return sizeInBytes;
             }
-            
+
             std::string getUrlData(const std::string url) {
                 std::shared_ptr<CURL> curlHandle = detail::curl_util::createCurlHandle();
                 detail::curl_util::setOpt(curlHandle.get(), CURLOPT_URL, url.c_str());
