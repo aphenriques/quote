@@ -62,7 +62,7 @@ namespace quote {
                 detail::curl_util::setOpt(curlHandle.get(), CURLOPT_WRITEDATA, &data);
                 detail::curl_util::setOpt(curlHandle.get(), CURLOPT_WRITEFUNCTION, detail::curl_util::writeToStringCallBack);
                 detail::curl_util::perform(curlHandle.get());
-                return std::move(data);
+                return data;
             }
         }
     }
