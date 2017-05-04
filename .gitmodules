@@ -1,3 +1,0 @@
-[submodule "src/exception"]
-	path = src/exception
-	url = https://github.com/aphenriques/exception.git
