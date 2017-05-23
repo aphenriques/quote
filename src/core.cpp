@@ -43,7 +43,7 @@ namespace quote {
                         std::string latestQuotesCsv = detail::curl_util::getUrlData(url.str());
                         detail::string_util::trim(latestQuotesCsv);
                         if (latestQuotesCsv.empty() || latestQuotesCsv.at(0) != '<') { // leading '<' indicates server error
-                            return std::move(latestQuotesCsv);
+                            return latestQuotesCsv;
                         } else {
                             throw exception::RuntimeException(__FILE__, __LINE__, __func__, "server (Yahoo! Finance) error");
                         }
@@ -78,7 +78,7 @@ namespace quote {
                     std::string historicalQuotesCsv = detail::curl_util::getUrlData(url.str());
                     detail::string_util::trim(historicalQuotesCsv);
                     if (historicalQuotesCsv.empty() || historicalQuotesCsv.at(0) != '<') { // leading '<' indicates server error
-                        return std::move(historicalQuotesCsv);
+                        return historicalQuotesCsv;
                     } else {
                         throw exception::RuntimeException(__FILE__, __LINE__, __func__, "server (Yahoo! Finance) error");
                     }
