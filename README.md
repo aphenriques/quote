@@ -1,3 +1,5 @@
+# This repository is not maintained!
+
 # quote
 
 `quote` is a C++ library to get Yahoo! Finance data. It gets historical data and the latest quotes strings in csv format.
